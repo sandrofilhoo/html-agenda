@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <title>Agenda de contatos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@700&display=swap"  rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="./style/contact.css">
+    <!-- <script src="socket.io/socket.io.js"></script> -->
+
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>
+                <h1>CONTATOS</h1>
+                <span>Selecione para <strong>editar</strong> ou <strong>excluir</strong></span>
+            </legend>
+            <div id="contacts">
+                <div class="field-group">
+                    <div class="field">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" placeholder="Ex:Lucas" value="" required="required">
+                    </div>
+                    <div class="field">
+                        <label for="tel">Telefone</label>
+                        <input type="tel" id="tel" placeholder="Ex:55-99999999" maxlength="12" value="" required="required">
+                    </div>
+                    <div class="field">
+                        <label for="e-mail">E-mail</label>
+                        <input type="text" id="email" name="email" placeholder="Ex:Lucas@hotmail.com" value="" required="required">
+                    </div>
+                    <button onclick='limpar()' type='submmit'>Excluir</button>
+                    <button onclick='atualizar()' type='submmit'>Atualizar</button>
+                </div>
+            </div>
+        </fieldset>
+       
+        <a href="./index.html">Voltar</a>
+    </form>
+        
+   <!-- <script>
+       var array = []
+       const socket = io()
+        function showContacts(data){
+            const contacts = document.getElementById('contacts');            
+            contacts.innerHTML ="
+            for (const contactId in data) {
+            const contact = data[contactId]
+            
+            array[contactId] = contact
+                
+            <div id='contact'>
+
+            <div id='name'>
+            <label for='name'>Nome</label>
+            <input id='name-+ contactId +' type='text' value='+ contact.name +'>
+            </div>
+
+            <div id='tel'>
+            <label for='tel'>Telefone</label>
+            <input id='tel-+ contactId +' type='text' value='+ contact.tel +'>
+            </div>
+
+            <div id='email'>
+            <label for='e-mail'>E-mail</label>
+            <input id='email-+ contactId +' type='text' value='+ contact.email +'>
+            </div>                
+
+            <button onclick='limpar(+ contactId +)' type='submmit'>Excluir</button>
+            <button onclick='atualizar(+ contactId +)' type='submmit'>Atualizar</button>
+                    
+            </div>
+                
+            }
+        }
+        socket.on("get-contacts", contacts =>{
+            showContacts(contacts)         
+        })
+
+        function limpar(data){   
+            const contactSend = array[data] 
+            socket.emit('remove', contactSend)
+                   
+        }
+        function atualizar(id){
+            var name = document.getElementById('name-'+id).value
+            var tel = document.getElementById('tel-'+id).value
+            var email = document.getElementById('email-'+id).value            
+
+            const atuContact = {
+                name:name,
+                tel:tel,
+                email:email
+            } 
+            socket.emit('atualiza', array[id], atuContact) // É ISSO AQUI
+            alert("Contato atualizado")
+        }   
+   </script>
+    <script src="./scripts/desable.js"></script> -->
+    
+</body>
+</html>
